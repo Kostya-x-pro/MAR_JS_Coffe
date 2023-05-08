@@ -37,6 +37,11 @@ ul {
   justify-content: space-evenly;
 }
 
+.nav__list li {
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .dropdown {
   position: relative;
 }
@@ -61,9 +66,10 @@ ul {
 }
 
 .dropdown__link {
-  padding: 5px 0;
+  padding: 5px 2px;
   display: inline-block;
   width: 100%;
+  border-radius: 5px;
 }
 
 .dropdown__link:hover {
@@ -87,7 +93,26 @@ ul {
   width: 24%;
 }
 
+.shop__link {
+  display: inline-block;
+  background-color: tan;
+  padding: 7px;
+  width: 60%;
+  outline: 1.75px dashed #333;
+  border-radius: 7px;
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
+
+.shop__image:hover .shop__link {
+  opacity: 1;
+}
+
+
 .shop__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 230px;
   background-size: cover;
 }

@@ -1,13 +1,23 @@
 const dropdown = document.querySelector('.dropdown');
 const dropdownList = document.querySelector('.dropdown__list');
-const dropdownLinks = document.querySelectorAll('.dropdown__link');
 const shopBody = document.querySelector('.shop__body');
+const dropdownLinks = document.querySelectorAll('.dropdown__link');
+const formInput = document.querySelector('.form__input');
+const formBtn = document.querySelector('.form__btn');
 
 dropdown.addEventListener('click', ()=> {
   dropdownList.classList.toggle('active');
+
+  if (dropdownList.classList.contains('active')) {
+    dropdown.style.outline = '2px solid #f26600';
+  } else {
+    dropdown.style.outline = '';
+  }
+
 });
 
 dropdownLinks.forEach(link => {
+ 
   link.addEventListener('click', ()=> {
     shopBody.innerHTML = '';
 
@@ -44,6 +54,22 @@ function showProduct(i) {
   price.innerHTML = cards[i].price; // [i] номер объекта по порядку
   shopItem.append(price);
  }
+
+// Функция искать товар.
+ const searchCards = (event) => {
+    event.preventDefault();
+    let inputValue = formInput.value;
+
+    const findCards = cards.filter(el => el.name.toLowerCase().includes(inputValue.toLowerCase().trim()));
+
+    if (findCards.length !== 0) {
+      showProduct(findCards);
+    }
+
+ };
+
+ formBtn.addEventListener('click', searchCards);
+ formInput.addEventListener('input', searchCards);
 
 const cards = [
   {
