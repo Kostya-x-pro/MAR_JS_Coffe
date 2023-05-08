@@ -58,13 +58,43 @@ function showProduct(i) {
 // Функция искать товар.
  const searchCards = (event) => {
     event.preventDefault();
+    shopBody.innerHTML = '';
     let inputValue = formInput.value;
 
     const findCards = cards.filter(el => el.name.toLowerCase().includes(inputValue.toLowerCase().trim()));
 
-    if (findCards.length !== 0) {
-      showProduct(findCards);
-    }
+    findCards.forEach((el, i) => {
+      if (el.name.toLowerCase().includes(inputValue) && inputValue !== 0) {
+        printCards(i);
+      }
+    });
+
+
+    function printCards(i) {
+      const shopItem = document.createElement('div');
+      shopItem.classList.add('shop__item');
+      shopBody.append(shopItem);
+      
+      const shopImg = document.createElement('div');
+      shopImg.classList.add('shop__image');
+      shopImg.style.backgroundImage = `url(${findCards[i].img})`;
+      shopItem.append(shopImg);
+    
+      const shopTitle = document.createElement('h3');
+      shopTitle.classList.add('shop__image_title');
+      shopTitle.innerHTML = findCards[i].name; // [i] номер объекта по порядку
+      shopItem.append(shopTitle);
+    
+      const price = document.createElement('p');
+      price.innerHTML = findCards[i].price; // [i] номер объекта по порядку
+      shopItem.append(price);
+     }
+
+
+    // if (findCards.length !== 0) { 
+    //   console.log(findCards);
+    //   showProduct(findCards);
+    // }
 
  };
 
