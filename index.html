@@ -32,7 +32,7 @@
               <input class="form__btn" type="submit" value="Найти">
             </form>
           </li>
-          <li><a href="#">Корзина</a></li>
+          <li><a class="basket" href="#">Корзина</a></li>
         </ul>
       </div>
     </nav>
@@ -50,37 +50,37 @@
           </p>
         </div>
         <div class="shop__body">
-          <div class="shop__item">
+          <div class="shop__item" data-type="ETHIOPIA">
             <div class="shop__image shop__image_bg1">
-              <a href="##" class="shop__link">
-                В корзину
+              <a href="#" class="shop__link">
+                Показать
               </a>
             </div>
             <h3 class="shop__image_title">ETHIOPIA</h3>
             <p>18 бел.р.</p>
           </div>
-          <div class="shop__item">
+          <div class="shop__item" data-type="KENYA">
             <div class="shop__image shop__image_bg2">
               <a href="##" class="shop__link">
-                В корзину
+                Показать
               </a>
             </div>
             <h3 class="shop__image_title">KENYA</h3>
             <p>20 бел.р.</p>
           </div>
-          <div class="shop__item">
+          <div class="shop__item" data-type="QUATEMALA">
             <div class="shop__image shop__image_bg3">
-              <a href="##" class="shop__link">
-                В корзину
+              <a href="#" class="shop__link">
+                Показать
               </a>
             </div>
             <h3 class="shop__image_title">QUATEMALA</h3>
             <p>26 бел.р.</p>
           </div>
-          <div class="shop__item">
+          <div class="shop__item" data-type="COLUMBIA">
             <div class="shop__image shop__image_bg4">
-              <a href="##" class="shop__link">
-                В корзину
+              <a href="##" data-personal-name="Vasya" class="shop__link">
+                Показать
               </a>
             </div>
             <h3 class="shop__image_title">COLUMBIA</h3>
@@ -89,5 +89,29 @@
         </div>
       </div>
     </section>
+
+    <div class="modal">
+      <div class="modal__body">
+        <table class="modal__table">
+          <thead>
+            <tr>
+              <th colspan="2">Наименование</th>
+              <th>Цена</th>
+              <th>Кол-во</th>
+              <th colspan="2">Сумма</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${el.name}</td>
+              <td>${el.price}</td>
+              <td>${el.count}</td>
+              <td>${el.price * el.count}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </body>
 </html>
